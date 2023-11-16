@@ -8,7 +8,7 @@ const DisplayTasks = ({tasks,setTasks})=>{
     return (
         <>
         <ul className="list-group">
-            {tasks.sort((a,b)=>(a.done?1:-1)).map((task)=>(<Task task={task} toggleCompletion={toggleCompletion}/>))}
+            {tasks.sort((a,b)=>(a.done?1:-1)).map((task)=>(<Task key={task.id} task={task} toggleCompletion={toggleCompletion}/>))}
            
             
       </ul>
