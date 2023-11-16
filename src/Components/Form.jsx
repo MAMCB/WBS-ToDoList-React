@@ -35,8 +35,8 @@ const Form = ({onFormEvent})=>{
             <input className="form-control" type="text" placeholder="New task" id="taskInput"/>
             <label htmlFor="date">Set due date</label>
             <input type="date" className="form-control" id="date"/>
-            <select class="form-select" aria-label="Default select example" id="priority">
-                <option selected value="">Priority</option>
+            <select className="form-select" aria-label="Default select example" id="priority">
+                <option  defaultValue="">Priority</option>
                 <option value="High">High</option>
                 <option value="Medium">Medium</option>
                  <option value="Low">Low</option>

@@ -5,6 +5,7 @@ import './App.css'
 
 function App() {
   const [tasks,setTasks]=useState([]);
+  
   const handleSubmit = (task) =>{
     const newTask = {
       id:task.id,
@@ -14,21 +15,25 @@ function App() {
       done:false
 
     };
-    setTasks([...tasks,newTask]);
+    setTasks([...tasks,newTask])
+   
   }
   const updateTasks = (task,newTitle)=>{
-    const tasksCopy = tasks;
-    tasksCopy[tasksCopy.findIndex(task)].title=newTitle;
-    setTasks(tasksCopy);
+    const updatedTasks = tasks.map((e)=>e);
+    
+    const taskIndex = updatedTasks.findIndex((e)=>e===task)
+    updatedTasks[taskIndex].title=newTitle;
+    setTasks(updatedTasks);
 
 
   }
 
   const removeTask = (task)=>{
-    const updatedTasks = tasks.map((e)=>{
-      return e.id!==task.id;
-    })
+    const updatedTasks = tasks.filter((e)=>e.id!==task.id)
+    
     setTasks(updatedTasks);
+    
+    
   }
   
 

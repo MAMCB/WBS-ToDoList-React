@@ -8,7 +8,7 @@ const DisplayTasks = ({tasks,setTasks,updateTaskArray,deleteTaskFromArray})=>{
     return (
         <>
         <ul className="list-group">
-            {tasks.sort((a,b)=>(a.done?1:-1)).map((task)=>(<Task key={task.id} task={task} toggleCompletion={toggleCompletion} tasks={tasks} updateTaskArray={updateTaskArray} deleteTaskFromArray={deleteTaskFromArray}/>))}
+            {tasks.length>0?tasks.sort((a,b)=>(a.done?1:-1)).map((task)=>(<Task key={task.id} task={task} toggleCompletion={toggleCompletion} tasks={tasks} updateTaskArray={updateTaskArray} deleteTaskFromArray={deleteTaskFromArray}/>)):<p>No tasks</p>}
            
             
       </ul>

@@ -103,3 +103,11 @@ background-color: yellow;
 .Low{
 background-color: green;
 }
+
+.date{
+  margin: 0 2rem;
+}
+
+.form-check-label{
+  margin:0 2rem;
+}
