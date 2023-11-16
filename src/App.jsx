@@ -16,13 +16,27 @@ function App() {
     };
     setTasks([...tasks,newTask]);
   }
+  const updateTasks = (task,newTitle)=>{
+    const tasksCopy = tasks;
+    tasksCopy[tasksCopy.findIndex(task)].title=newTitle;
+    setTasks(tasksCopy);
+
+
+  }
+
+  const removeTask = (task)=>{
+    const updatedTasks = tasks.map((e)=>{
+      return e.id!==task.id;
+    })
+    setTasks(updatedTasks);
+  }
   
 
   return (
     <>
       <h1>To do List</h1>
       <Form onFormEvent={handleSubmit}/>
-      <DisplayTasks tasks = {tasks} setTasks={setTasks}/>
+      <DisplayTasks tasks = {tasks} setTasks={setTasks} updateTaskArray={updateTasks} deleteTaskFromArray={removeTask}/>
       
     </>
   )
