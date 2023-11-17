@@ -35,7 +35,7 @@ const Subtask = ({subTask,toggleSubCompletion,updateSubTaskArray,deleteSubTaskFr
                 <input type="checkbox" className="form-check-input" id={`check_${subTask.id}`} checked={subTask.done} onChange={()=>toggleSubCompletion(subTask.id)}/>
                 {isUpdate?<input type="text" style={{width:"15rem"}} className="form-control"  placeholder={subTask.title} id={`edit_${subTask.id}`} onChange={(e)=>setValue(e.target.value)}/>:<label className="form-check-label" htmlFor={`check_${subTask.id}`}>{subTask.title}</label>}
                 
-                <button className="btn btn-success" onClick={isUpdate?updateTask:editTask}>{isUpdate?"Update":"Edit"}</button>
+                <button className={isUpdate?"btn btn-info":"btn btn-success"} onClick={isUpdate?updateTask:editTask}>{isUpdate?"Update":"Edit"}</button>
                 <button className="btn btn-danger" onClick={removeTask}>Remove</button>
                 
                 
