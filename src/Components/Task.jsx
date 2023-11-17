@@ -1,6 +1,6 @@
 import {useState} from "react"
 
-const Task = ({task,toggleCompletion,updateTaskArray,deleteTaskFromArray})=>
+const Task = ({task,toggleCompletion,updateTaskArray,deleteTaskFromArray,addSubtask,subTasks})=>
 {   const[isUpdate,setIsUpdate]=useState(false);
     const [value, setValue] = useState("");
    
@@ -28,6 +28,15 @@ const Task = ({task,toggleCompletion,updateTaskArray,deleteTaskFromArray})=>
 
     }
 
+    const addSubTask = () =>{
+        const subTaskTitle = prompt("Enter a subtask.")
+        if(!subTaskTitle)
+        {
+            return;
+        }
+        addSubtask(task,subTaskTitle);
+    }
+
    
 
 
@@ -41,6 +50,11 @@ const Task = ({task,toggleCompletion,updateTaskArray,deleteTaskFromArray})=>
                 <span className="date">Due date: {task.date}</span>
                 <button className="btn btn-success" onClick={isUpdate?updateTask:editTask}>{isUpdate?"Update":"Edit"}</button>
                 <button className="btn btn-danger" onClick={removeTask}>Remove</button>
+                <button className="btn btn-secondary" onClick={addSubTask}>Add subtask</button>
+                <ul className="list-group">
+                    {subTasks}
+
+                </ul>
                 
                 
             </li>
