@@ -64,6 +64,18 @@ function App() {
   }
 
   const deleteSubTaskFromArray = (subTask)=>{
+     const updatedTasks = tasks.map((e)=>e);
+     const taskIndex = updatedTasks.findIndex((e)=>e.id===subTask.parentID);
+    const subtaskIndex = updatedTasks[taskIndex].subTasks.findIndex((e)=>e.id===subTask.id);
+     updatedTasks[taskIndex].subTasks.splice(subtaskIndex,1);
+
+  
+    setTasks(updatedTasks);
+
+    const updatedSubtasks = subTasks.filter((e)=>e.id!==subTask.id);
+    setSubTasks(updatedSubtasks);
+
+
 
   }
   
