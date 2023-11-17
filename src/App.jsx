@@ -58,13 +58,21 @@ function App() {
 
 
   }
+
+  const updateSubTaskArray = (subTask,newTitle)=>{
+
+  }
+
+  const deleteSubTaskFromArray = (subTask)=>{
+
+  }
   
 
   return (
     <>
       <h1>To do List</h1>
       <Form onFormEvent={handleSubmit}/>
-      <DisplayTasks tasks = {tasks} setTasks={setTasks} updateTaskArray={updateTasks} deleteTaskFromArray={removeTask} addSubTask={addSubTask} subTasks={subTasks}/>
+      <DisplayTasks tasks = {tasks} setTasks={setTasks} updateTaskArray={updateTasks} deleteTaskFromArray={removeTask} addSubTask={addSubTask} subTasks={subTasks} updateSubTaskArray={updateSubTaskArray} deleteSubTaskFromArray={deleteSubTaskFromArray} setSubTasks={setSubTasks}/>
       
     </>
   )
