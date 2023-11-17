@@ -70,6 +70,7 @@
   display: flex;
   text-align: left;
   place-items: center;
+  border:2px solid black;
 
 
 }
@@ -124,4 +125,8 @@ color:white
 
 .subTask{
   background-color: grey;
+  color:white;
+ 
+    
+  
 }
