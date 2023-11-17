@@ -27,12 +27,24 @@ const DisplayTasks = ({tasks,setTasks,updateTaskArray,deleteTaskFromArray})=>{
                             </TabPanel>
                             <TabPanel>
                                 <h2>High priority tasks</h2>
+                                <ul className="list-group">
+                                    {tasks.filter((e)=>e.priority==="High").map((task)=>(<Task key={task.id} task={task} toggleCompletion={toggleCompletion} tasks={tasks} updateTaskArray={updateTaskArray} deleteTaskFromArray={deleteTaskFromArray}/>))}
+
+                                </ul>
                             </TabPanel>
                             <TabPanel>
                                 <h2>Medium priority tasks</h2>
+                                 <ul className="list-group">
+                                    {tasks.filter((e)=>e.priority==="Medium").map((task)=>(<Task key={task.id} task={task} toggleCompletion={toggleCompletion} tasks={tasks} updateTaskArray={updateTaskArray} deleteTaskFromArray={deleteTaskFromArray}/>))}
+
+                                </ul>
                             </TabPanel>
                             <TabPanel>
                                 <h2>Low priority tasks</h2>
+                                 <ul className="list-group">
+                                    {tasks.filter((e)=>e.priority==="Low").map((task)=>(<Task key={task.id} task={task} toggleCompletion={toggleCompletion} tasks={tasks} updateTaskArray={updateTaskArray} deleteTaskFromArray={deleteTaskFromArray}/>))}
+
+                                </ul>
                             </TabPanel>
                         </Tabs>
         
