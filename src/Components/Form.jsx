@@ -33,7 +33,7 @@ const Form = ({onFormEvent})=>{
         <form onSubmit={submitHandler} className="taskForm">
             
             <input className="form-control" type="text" placeholder="New task" id="taskInput"/>
-            <label htmlFor="date">Set due date</label>
+            <label htmlFor="date" className="form-check-label">Set due date</label>
             <input type="date" className="form-control" id="date"/>
             <select className="form-select" aria-label="Default select example" id="priority">
                 <option  defaultValue="">Priority</option>
