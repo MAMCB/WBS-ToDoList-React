@@ -15,7 +15,7 @@ function App() {
       date:task.date,
       priority:task.priority,
       done:false,
-      subTasks:null
+      subTasks:[]
 
     };
     setTasks([...tasks,newTask])
@@ -50,16 +50,29 @@ function App() {
 
     const updatedTasks = tasks.map((e)=>e);
     
-    const taskIndex = updatedTasks.findIndex((e)=>e===task)
-    updatedTasks[taskIndex].subTasks=subTasks.filter((subtask)=>{
-      subtask.parentID===updatedTasks[taskIndex].id;
-    });
+    const taskIndex = updatedTasks.findIndex((e)=>e.id===task.id)
+    updatedTasks[taskIndex].subTasks.push(newSubtask);
+   
     setTasks(updatedTasks);
 
 
   }
 
   const updateSubTaskArray = (subTask,newTitle)=>{
+     const updatedSubTasks = subTasks.map((e)=>e);
+    
+    const subTaskIndex = updatedSubTasks.findIndex((e)=>e.id===subTask.id);
+    updatedSubTasks[subTaskIndex].title=newTitle;
+    setSubTasks(updatedSubTasks);
+
+    const updatedTasks = tasks.map((e)=>e);
+    
+    const taskIndex = updatedTasks.findIndex((e)=>e.id===subTask.parentID);
+    const subtaskIndex = updatedTasks[taskIndex].subTasks.findIndex((e)=>e.id===subTask.id);
+    
+    updatedTasks[taskIndex].subTasks[subtaskIndex].title=newTitle;
+    setTasks(updatedTasks);
+
 
   }
 

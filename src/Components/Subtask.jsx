@@ -21,6 +21,7 @@ const Subtask = ({subTask,toggleSubCompletion,updateSubTaskArray,deleteSubTaskFr
             setIsUpdate(false);
             return;
         }
+        
         const newTitle =value;
          updateSubTaskArray(subTask,newTitle)
           setIsUpdate(false);
