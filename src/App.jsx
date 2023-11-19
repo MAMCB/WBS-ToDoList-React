@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import Form from "./Components/Form"
 import DisplayTasks from './Components/DisplayTasks';
 import {v4 as uuidv4} from "uuid";
@@ -7,6 +7,22 @@ import './App.css'
 function App() {
   const [tasks,setTasks]=useState([]);
   const[subTasks,setSubTasks]=useState([]);
+   useEffect(() => {
+    // Load data from local storage when the component mounts
+    const storedTasks = localStorage.getItem("tasks");
+    const storedSubTasks = localStorage.getItem("subtasks");
+
+    if (storedTasks && storedSubTasks) {
+      try {
+        const initialTasks = JSON.parse(storedTasks);
+        const initialSubtasks = JSON.parse(storedSubTasks);
+        setTasks(initialTasks);
+        setSubTasks(initialSubtasks);
+      } catch (error) {
+        console.error("Error parsing data from local storage:", error);
+      }
+    }
+  }, []);
   
   const handleSubmit = (task) =>{
     const newTask = {
@@ -91,11 +107,23 @@ function App() {
 
 
   }
-  
+
+   const saveList = () => {
+    try {
+      const stringifiedTasks = JSON.stringify(tasks);
+      const stringifiedSubTasks = JSON.stringify(subTasks);
+      localStorage.setItem("tasks", stringifiedTasks);
+      localStorage.setItem("subtasks", stringifiedSubTasks);
+    } catch (error) {
+      console.error("Error saving data to local storage:", error);
+    }
+  }
+
 
   return (
     <>
       <h1>To do List</h1>
+      <button className='btn btn-success' onClick={saveList}>Save list</button>
       <Form onFormEvent={handleSubmit}/>
       <DisplayTasks tasks = {tasks} setTasks={setTasks} updateTaskArray={updateTasks} deleteTaskFromArray={removeTask} addSubTask={addSubTask} subTasks={subTasks} updateSubTaskArray={updateSubTaskArray} deleteSubTaskFromArray={deleteSubTaskFromArray} setSubTasks={setSubTasks}/>
       
