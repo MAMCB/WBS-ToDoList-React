@@ -1,10 +1,11 @@
 import {useState} from "react"
+import ProgressBar from "./ProgressBar";
 
 const Task = ({task,toggleCompletion,updateTaskArray,deleteTaskFromArray,addSubtask,subTasks})=>
 {   const[isUpdate,setIsUpdate]=useState(false);
     const [value, setValue] = useState("");
    
-
+    
     const editTask = (e)=>{
         setIsUpdate(true);
 
@@ -51,7 +52,9 @@ const Task = ({task,toggleCompletion,updateTaskArray,deleteTaskFromArray,addSubt
                 <button className={isUpdate?"btn btn-info":"btn btn-success"} onClick={isUpdate?updateTask:editTask}>{isUpdate?"Update":"Edit"}</button>
                 <button className="btn btn-danger" onClick={removeTask}>Remove</button>
                 <button className="btn btn-secondary" onClick={addSubTask}>Add subtask</button>
+                
                 <ul className="list-group">
+                    
                     {subTasks}
 
                 </ul>

@@ -27,7 +27,7 @@ const DisplayTasks = ({tasks,setTasks,updateTaskArray,deleteTaskFromArray,update
 
                             <TabPanel>
                                 <h2>All tasks</h2>
-                                <ProgressBar tasks={tasks}/>
+                                <ProgressBar key={"allTasks"} tasks={tasks}/>
                                 <ul className="list-group">
             {tasks.sort((a,b)=>(a.done?1:-1)).map((task)=>(<Task key={task.id} task={task} toggleCompletion={toggleCompletion} tasks={tasks} updateTaskArray={updateTaskArray} deleteTaskFromArray={deleteTaskFromArray} addSubtask={addSubTask} subTasks={subTasks?subTasks.filter((e)=>e.parentID===task.id).map((subtask)=>(<Subtask key={subtask.id} subTask={subtask} toggleSubCompletion={toggleSubCompletion} updateSubTaskArray={updateSubTaskArray} deleteSubTaskFromArray={deleteSubTaskFromArray}/>)):"No subtasks"}/>))}
            
@@ -36,7 +36,7 @@ const DisplayTasks = ({tasks,setTasks,updateTaskArray,deleteTaskFromArray,update
                             </TabPanel>
                             <TabPanel>
                                 <h2>High priority tasks</h2>
-                                <ProgressBar tasks={tasks.filter((e)=>e.priority==="High")}/>
+                                <ProgressBar key={"highPriorityTasks"} tasks={tasks.filter((e)=>e.priority==="High")}/>
                                 <ul className="list-group">
                                     {tasks.filter((e)=>e.priority==="High").map((task)=>(<Task key={task.id} task={task} toggleCompletion={toggleCompletion} tasks={tasks} updateTaskArray={updateTaskArray} deleteTaskFromArray={deleteTaskFromArray} addSubtask={addSubTask} subTasks={subTasks?subTasks.filter((e)=>e.parentID===task.id).map((subtask)=>(<Subtask key={subtask.id} subTask={subtask} toggleSubCompletion={toggleSubCompletion} updateSubTaskArray={updateSubTaskArray} deleteSubTaskFromArray={deleteSubTaskFromArray}/>)):"No subtasks"}/>))}
 
@@ -44,7 +44,7 @@ const DisplayTasks = ({tasks,setTasks,updateTaskArray,deleteTaskFromArray,update
                             </TabPanel>
                             <TabPanel>
                                 <h2>Medium priority tasks</h2>
-                                <ProgressBar tasks={tasks.filter((e)=>e.priority==="Medium")}/>
+                                <ProgressBar key={"mediumPriorityTasks"}  tasks={tasks.filter((e)=>e.priority==="Medium")}/>
                                  <ul className="list-group">
                                     {tasks.filter((e)=>e.priority==="Medium").map((task)=>(<Task key={task.id} task={task} toggleCompletion={toggleCompletion} tasks={tasks} updateTaskArray={updateTaskArray} deleteTaskFromArray={deleteTaskFromArray} addSubtask={addSubTask} subTasks={subTasks?subTasks.filter((e)=>e.parentID===task.id).map((subtask)=>(<Subtask key={subtask.id} subTask={subtask} toggleSubCompletion={toggleSubCompletion} updateSubTaskArray={updateSubTaskArray} deleteSubTaskFromArray={deleteSubTaskFromArray}/>)):"No subtasks"}/>))}
 
@@ -52,7 +52,7 @@ const DisplayTasks = ({tasks,setTasks,updateTaskArray,deleteTaskFromArray,update
                             </TabPanel>
                             <TabPanel>
                                 <h2>Low priority tasks</h2>
-                                <ProgressBar tasks={tasks.filter((e)=>e.priority==="Low")}/>
+                                <ProgressBar key={"lowPriorityTasks"}  tasks={tasks.filter((e)=>e.priority==="Low")}/>
                                  <ul className="list-group">
                                     {tasks.filter((e)=>e.priority==="Low").map((task)=>(<Task key={task.id} task={task} toggleCompletion={toggleCompletion} tasks={tasks} updateTaskArray={updateTaskArray} deleteTaskFromArray={deleteTaskFromArray} addSubtask={addSubTask} subTasks={subTasks?subTasks.filter((e)=>e.parentID===task.id).map((subtask)=>(<Subtask key={subtask.id} subTask={subtask} toggleSubCompletion={toggleSubCompletion} updateSubTaskArray={updateSubTaskArray} deleteSubTaskFromArray={deleteSubTaskFromArray}/>)):"No subtasks"}/>))}
 

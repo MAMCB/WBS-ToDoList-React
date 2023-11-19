@@ -1,9 +1,16 @@
 const ProgressBar = ({tasks})=>{
-
+      if (!tasks || !tasks.length) {
+    // Handle the case where tasks is undefined or an empty array
+    console.log(tasks);
+    return <p>No tasks available.</p>;
+  }
+  console.log('tasks:', tasks);
+    
     const amountOfTasks = tasks.length;
     const tasksCompleted = tasks.filter((task)=>{
         return task.done;
     })
+    
     const progress = (tasksCompleted.length)*(100/amountOfTasks); 
 
     return (
