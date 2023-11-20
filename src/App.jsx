@@ -3,6 +3,7 @@ import Form from "./Components/Form"
 import DisplayTasks from './Components/DisplayTasks';
 import {v4 as uuidv4} from "uuid";
 import './App.css'
+import Navbar from './Components/Navbar';
 
 function App() {
   const [tasks,setTasks]=useState([]);
@@ -122,7 +123,8 @@ function App() {
 
   return (
     <>
-      <h1>To do List</h1>
+      <Navbar/>
+      <h1 className='main-title'>To do List</h1>
       <button className='btn btn-success' onClick={saveList}>Save list</button>
       <Form onFormEvent={handleSubmit}/>
       <DisplayTasks tasks = {tasks} setTasks={setTasks} updateTaskArray={updateTasks} deleteTaskFromArray={removeTask} addSubTask={addSubTask} subTasks={subTasks} updateSubTaskArray={updateSubTaskArray} deleteSubTaskFromArray={deleteSubTaskFromArray} setSubTasks={setSubTasks}/>
