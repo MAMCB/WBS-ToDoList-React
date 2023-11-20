@@ -123,7 +123,7 @@ function App() {
 
   return (
     <>
-      <Navbar/>
+      
       <h1 className='main-title'>To do List</h1>
       <button className='btn btn-success' onClick={saveList}>Save list</button>
       <Form onFormEvent={handleSubmit}/>
