@@ -1,10 +1,10 @@
 const Navbar = ()=>{
 return (
     <>
-    <nav class="navbar bg-body-tertiary">
+    <nav class="navbar ">
   <div class="container-fluid">
-    <img src="" alt="logo" />
-    <a class="navbar-brand">To do list</a>
+    <img id="logo" src="src\assets\WBS-Coding-Logo.png" alt="logo" />
+    <a href="https://github.com/MAMCB/WBS-ToDoList-React" class="navbar-brand">Git Hub</a>
     
   </div>
 </nav>
