@@ -29,7 +29,7 @@ const DisplayTasks = ({tasks,setTasks,updateTaskArray,deleteTaskFromArray,update
                                 <h2>All tasks</h2>
                                 <ProgressBar key={"allTasks"} tasks={tasks}/>
                                 <ul className="list-group">
-            {tasks.sort((a,b)=>(a.done?1:-1)).map((task)=>(<Task key={task.id} task={task} toggleCompletion={toggleCompletion} tasks={tasks} updateTaskArray={updateTaskArray} deleteTaskFromArray={deleteTaskFromArray} addSubtask={addSubTask} subTasks={subTasks?subTasks.filter((e)=>e.parentID===task.id).map((subtask)=>(<Subtask key={subtask.id} subTask={subtask} toggleSubCompletion={toggleSubCompletion} updateSubTaskArray={updateSubTaskArray} deleteSubTaskFromArray={deleteSubTaskFromArray}/>)):"No subtasks"}/>))}
+            {tasks.map((task)=>(<Task key={task.id} task={task} toggleCompletion={toggleCompletion} tasks={tasks} updateTaskArray={updateTaskArray} deleteTaskFromArray={deleteTaskFromArray} addSubtask={addSubTask} subTasks={subTasks?subTasks.filter((e)=>e.parentID===task.id).map((subtask)=>(<Subtask key={subtask.id} subTask={subtask} toggleSubCompletion={toggleSubCompletion} updateSubTaskArray={updateSubTaskArray} deleteSubTaskFromArray={deleteSubTaskFromArray}/>)):"No subtasks"}/>))}
            
             
                                 </ul>
